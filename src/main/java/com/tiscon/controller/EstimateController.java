@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
  * 引越し見積もりのコントローラークラス。
  *
  * @author Oikawa Yumi
+ *
+ * 加藤光騎
  */
 @Controller
 public class EstimateController {
