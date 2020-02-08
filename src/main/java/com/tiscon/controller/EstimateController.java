@@ -26,6 +26,8 @@ public class EstimateController {
 
     private final EstimateService estimateService;
 
+    int flag = 0;
+
     /**
      * コンストラクタ
      *
@@ -39,6 +41,7 @@ public class EstimateController {
 
     @GetMapping("")
     String index(Model model) {
+        flag = 0;
         return "top";
     }
 
@@ -79,7 +82,6 @@ public class EstimateController {
     @PostMapping(value = "submit", params = "confirm")
     String confirm(@Validated UserOrderForm userOrderForm,BindingResult result,Model model) {
         if (result.hasErrors()) {
-
             model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
             model.addAttribute("userOrderForm", userOrderForm);
             return "confirm";
@@ -161,10 +163,12 @@ public class EstimateController {
             model.addAttribute("userOrderForm", userOrderForm);
             return "confirm";
         }
-
-        UserOrderDto dto = new UserOrderDto();
-        BeanUtils.copyProperties(userOrderForm, dto);
-        estimateService.registerOrder(dto);
+        if(flag == 0){
+            flag = 1;
+            UserOrderDto dto = new UserOrderDto();
+            BeanUtils.copyProperties(userOrderForm, dto);
+            estimateService.registerOrder(dto);
+        }
 
         return "complete";
     }
