@@ -110,18 +110,27 @@ public class EstimateDao {
     }
     public double getDistanceNum(String prefectureNumFrom, String prefectureNumTo) {
         // 都道府県のFromとToが逆転しても同じ距離となるため、「そのままの状態のデータ」と「FromとToを逆転させたデータ」をくっつけた状態で距離を取得する。
-        String sql1 = "select AD_NORTH from ADRESS where AD_ID=:prefectureIdFrom";
-        String sql2 = "select AD_WESR from ADRESS where AD_ID=:prefectureIdTo";
+        String fiNorth = "select AD_NORTH from ADRESS where AD_ID=:prefectureIdFrom";
+        String fiWest = "select AD_WESR from ADRESS where AD_ID=:prefectureIdFrom";
 
-        PrefectureDistance prefectureDistance = new PrefectureDistance();
-        prefectureDistance.setPrefectureIdFrom(prefectureNumFrom);
-        prefectureDistance.setPrefectureIdTo(prefectureNumTo);
+        String seNorth = "select AD_NORTH from ADRESS where AD_ID=:prefectureIdTo";
+        String seWest = "select AD_WESR from ADRESS where AD_ID=:prefectureIdTo";
 
         double distance;
         try {
-            double north = parameterJdbcTemplate.queryForObject(sql1, new BeanPropertySqlParameterSource(prefectureDistance), double.class);
-            double west = parameterJdbcTemplate.queryForObject(sql2, new BeanPropertySqlParameterSource(prefectureDistance), double.class);
-            distance = Math.sqrt(north*north + west*west);
+            PrefectureDistance prefectureDistanceFi = new PrefectureDistance();
+            prefectureDistanceFi.setPrefectureIdFrom(prefectureNumFrom);
+            prefectureDistanceFi.setPrefectureIdTo(prefectureNumFrom);
+            double n1 = parameterJdbcTemplate.queryForObject(fiNorth, new BeanPropertySqlParameterSource(prefectureDistanceFi), double.class);
+            double w1 = parameterJdbcTemplate.queryForObject(fiNorth, new BeanPropertySqlParameterSource(prefectureDistanceFi), double.class);
+
+            PrefectureDistance prefectureDistanceSe = new PrefectureDistance();
+            prefectureDistanceSe.setPrefectureIdFrom(prefectureNumTo);
+            prefectureDistanceSe.setPrefectureIdTo(prefectureNumTo);
+            double n2 = parameterJdbcTemplate.queryForObject(seNorth, new BeanPropertySqlParameterSource(prefectureDistanceSe), double.class);
+            double w2 = parameterJdbcTemplate.queryForObject(seNorth, new BeanPropertySqlParameterSource(prefectureDistanceSe), double.class);
+
+            distance = Math.sqrt((n1-n2)*(n1-n2) + (w1-w2)*(w1-w2)) * 100;
 
         } catch (IncorrectResultSizeDataAccessException e) {
             distance = 0;

@@ -74,11 +74,12 @@ public class EstimateService {
         //double distance = estimateDAO.getDistanceNum(dto.getOldPrefectureId(), dto.getNewPrefectureId());
         //double distance = estimateDAO.getDistanceNum("0930000", "0010000");
 
+
         // 小数点以下を切り捨てる
         int distanceInt = (int) Math.floor(distance);
-
         // 距離当たりの料金を算出する
         int priceForDistance = distanceInt * PRICE_PER_DISTANCE;
+
 
         int boxes = getBoxForPackage(dto.getBox(), PackageType.BOX)
                 + getBoxForPackage(dto.getBed(), PackageType.BED)
