@@ -169,9 +169,18 @@ public class EstimateController {
             BeanUtils.copyProperties(userOrderForm, dto);
             estimateService.registerOrder(dto);
         }
-
-
         return "complete";
     }
+    @PostMapping(value = "back", params = "backToConfirm")
+    String backToConfirm(@Validated UserOrderForm userOrderForm, BindingResult result, Model model){
+//        model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+//        model.addAttribute("userOrderForm", userOrderForm);
+        return "confirm";
+    }
+////    @PostMapping(value = "button", params = "backToTop")
+////    String backToTop(Model model) {
+////        return "top";
+////    }
+
 
 }
