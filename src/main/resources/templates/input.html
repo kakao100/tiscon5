@@ -14,7 +14,7 @@
 <nav th:insert="header.html :: header"></nav>
 <div class="container">
   <form th:action="@{/submit}" th:object="${userOrderForm}" class="form-horizontal" method="post">
-    <h1>お見積り情報入力</h1>
+    <h1 class="omitu">お見積り情報入力</h1>
 <!--    <ul th:if="${#fields.hasErrors('all')}">-->
 <!--      <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>-->
 <!--    </ul>-->
