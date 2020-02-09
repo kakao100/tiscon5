@@ -169,9 +169,7 @@ public class EstimateController {
             BeanUtils.copyProperties(userOrderForm, dto);
             estimateService.registerOrder(dto);
         }
-        if(lag == 1){
 
-        }
 
         return "complete";
     }
