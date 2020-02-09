@@ -8,17 +8,21 @@
   <link rel="stylesheet" th:href="@{http://fonts.googleapis.com/css?family=Exo:900}"
         href="http://fonts.googleapis.com/css?family=Exo:900"/>
   <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
 </head>
 <body>
-
+<center>
 <nav th:insert="header.html :: header"></nav>
 <div class="jumbotron">
   <div class="container">
-    <h1 class="display-1">tiscon moving company</h1>
-    <p class="bland-message">未来の景色に鮮やかな彩りを</p>
-    <a class="btn btn-primary btn-top" th:href="@{/input}" role="button">簡単無料見積もりをする</a>
+    <h1 class="display-1" >tiscon moving<br> company</h1>
+    <p class="bland-message">~未来の景色に鮮やかな彩りを~</p>
+    <huge>
+    <a class="btn btn-primary btn-top" th:href="@{/input}" role="button" >簡単無料見積もりをする</a>
+    </huge>
   </div>
 </div>
+</center>
 <script src="../js/jquery-3.4.1.min.js" th:src="@{/js/jquery-3.4.1.min.js}"></script>
 <script src="../js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
 <script src="../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
