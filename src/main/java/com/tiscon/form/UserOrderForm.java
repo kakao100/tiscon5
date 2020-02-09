@@ -28,10 +28,7 @@ public class UserOrderForm {
     private String oldAdNum;
 
 
-    @NotBlank
     private String oldPrefectureId;
-
-    @NotBlank
     private String oldAddress;
 
     @NotBlank
@@ -39,10 +36,7 @@ public class UserOrderForm {
     @Size(min = 7,max = 7)
     private String newAdNum;
 
-    @NotBlank
     private String newPrefectureId;
-
-    @NotBlank
     private String newAddress;
 
     @Numeric
