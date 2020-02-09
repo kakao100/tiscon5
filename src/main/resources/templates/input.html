@@ -15,9 +15,6 @@
 <div class="container">
   <form th:action="@{/submit}" th:object="${userOrderForm}" class="form-horizontal" method="post">
     <h1 class="omitu">お見積り情報入力</h1>
-<!--    <ul th:if="${#fields.hasErrors('all')}">-->
-<!--      <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>-->
-<!--    </ul>-->
     <font color="red">
       <ul th:if="${#fields.hasErrors('all')}" >
         入力に誤りがあります。修正して下さい。
@@ -27,7 +24,7 @@
       <fieldset>
         <legend>個人情報</legend>
         <div class="form-group">
-          <label for="customerName">氏名(必須)</label>
+          <label for="customerName">氏名</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}" >
             <ul th:each="err : ${#fields.errors('customerName')}" th:text="${err}" ></ul>
@@ -36,7 +33,7 @@
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL(必須)(半角数字)(例：090-1234-XXXX→0901234XXXX)</label>
+          <label for="tel">連絡先TEL(半角数字)(例：090-1234-XXXX→0901234XXXX)</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('tel')}" th:text="${err}"></ul>
@@ -45,7 +42,7 @@
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
         </div>
         <div class="form-group">
-          <label for="email">連絡先メールアドレス(必須)(半角)(例：a@a.com)</label>
+          <label for="email">連絡先メールアドレス(半角)(例：a@a.com)</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('email')}" th:text="${err}"></ul>
@@ -54,7 +51,7 @@
           <input type="email" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
         <div class="form-group">
-        <label for="oldAdNum">転居元郵便番号()</label>
+        <label for="oldAdNum">転居元郵便番号(例：061-3248→0613248)</label>
         <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('oldAdNum')}" th:text="${err}"></ul>
@@ -74,7 +71,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="oldAddress">転居元住所（市区町村以下）(必須)</label>
+          <label for="oldAddress">転居元住所（市区町村以下）</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('oldAddress')}" th:text="${err}"></ul>
@@ -84,7 +81,7 @@
                  class="form-control" value="新宿区西新宿1-1-1"/>
         </div>
         <div class="form-group">
-          <label for="newAdNum">転居先郵便番号()</label>
+          <label for="newAdNum">転居先郵便番号(例：061-3248→0613248)</label>
           <font color="red">
             <ul th:if="${#fields.hasErrors('all')}">
               <ul th:each="err : ${#fields.errors('newAdNum')}" th:text="${err}"></ul>
@@ -93,7 +90,7 @@
           <input type="text" id="newAdNum" name="newAdNum" th:field="*{newAdNum}" class="form-control" value="0600000"/>
         </div>
         <div class="form-group">
-          <label for="newPrefectureId">転居先住所（都道府県）(必須)</label>
+          <label for="newPrefectureId">転居先住所（都道府県）</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('newPrefectureId')}" th:text="${err}"></ul>
@@ -104,7 +101,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="newAddress">転居先住所（市区町村以下）(必須)</label>
+          <label for="newAddress">転居先住所（市区町村以下）</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('newAddress')}" th:text="${err}"></ul>
@@ -117,7 +114,7 @@
       <fieldset>
         <legend>荷物情報</legend>
         <div class="form-group">
-          <label for="box">段ボールの個数(必須)(半角数字)</label>
+          <label for="box">段ボールの個数(半角数字)</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('box')}" th:text="${err}"></ul>
@@ -126,7 +123,7 @@
           <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
         </div>
         <div class="form-group">
-          <label for="bed">ベッドの個数(必須)(半角数字)</label>
+          <label for="bed">ベッドの個数(半角数字)</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('bed')}" th:text="${err}"></ul>
@@ -135,7 +132,7 @@
           <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
         </div>
         <div class="form-group">
-          <label for="bicycle">自転車の個数(必須)(半角数字)</label>
+          <label for="bicycle">自転車の個数(半角数字)</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('bicycle')}" th:text="${err}"></ul>
@@ -144,7 +141,7 @@
           <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
         </div>
         <div class="form-group">
-          <label for="washingMachine">洗濯機の個数(必須)(半角数字)</label>
+          <label for="washingMachine">洗濯機の個数(半角数字)</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
             <ul th:each="err : ${#fields.errors('washingMachine')}" th:text="${err}"></ul>
