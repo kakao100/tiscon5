@@ -54,6 +54,15 @@
           <input type="email" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
         <div class="form-group">
+        <label for="oldAdNum">転居元郵便番号()</label>
+        <font color="red">
+          <ul th:if="${#fields.hasErrors('all')}">
+            <ul th:each="err : ${#fields.errors('oldAdNum')}" th:text="${err}"></ul>
+          </ul>
+        </font>
+          <input type="text" id="oldAdNum" name="oldAdNum" th:field="*{oldAdNum}" class="form-control" value="0600000"/>
+        </div>
+        <div class="form-group">
           <label for="oldPrefectureId">転居元住所（都道府県）</label>
           <font color="red">
           <ul th:if="${#fields.hasErrors('all')}">
@@ -73,6 +82,15 @@
           </font>
           <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
                  class="form-control" value="新宿区西新宿1-1-1"/>
+        </div>
+        <div class="form-group">
+          <label for="newAdNum">転居先郵便番号()</label>
+          <font color="red">
+            <ul th:if="${#fields.hasErrors('all')}">
+              <ul th:each="err : ${#fields.errors('newAdNum')}" th:text="${err}"></ul>
+            </ul>
+          </font>
+          <input type="text" id="newAdNum" name="newAdNum" th:field="*{newAdNum}" class="form-control" value="0600000"/>
         </div>
         <div class="form-group">
           <label for="newPrefectureId">転居先住所（都道府県）(必須)</label>

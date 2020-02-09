@@ -19,7 +19,6 @@ public class UserOrderDto {
 
     private String oldAdNum;
 
-
     private String box;
 
     private String bed;
@@ -78,19 +77,19 @@ public class UserOrderDto {
         this.newPrefectureId = newPrefectureId;
     }
 
-    public int getNewAdNum() {
-        return Integer.parseInt(newAdNum);
+    public String getNewAdNum() {
+        return newAdNum;
     }
 
-    public void setNewAdNum(String box) {
-        this.newAdNum = box;
+    public void setNewAdNum(String newAdNum) {
+        this.newAdNum = newAdNum;
     }
 
-    public int getOldAdNum() {
-        return Integer.parseInt(newAdNum);
+    public String getOldAdNum() {
+        return oldAdNum;
     }
 
-    public void setOldAdNum(String box) {
+    public void setOldAdNum(String oldAdNum) {
         this.oldAdNum = oldAdNum;
     }
 

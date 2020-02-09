@@ -23,10 +23,21 @@ public class UserOrderForm {
     private String email;
 
     @NotBlank
+    @Numeric
+    @Size(min = 7,max = 7)
+    private String oldAdNum;
+
+
+    @NotBlank
     private String oldPrefectureId;
 
     @NotBlank
     private String oldAddress;
+
+    @NotBlank
+    @Numeric
+    @Size(min = 7,max = 7)
+    private String newAdNum;
 
     @NotBlank
     private String newPrefectureId;
@@ -151,5 +162,20 @@ public class UserOrderForm {
 
     public void setHasWashingMachineSettingOption(Boolean hasWashingMachineSettingOption) {
         this.hasWashingMachineSettingOption = hasWashingMachineSettingOption;
+    }
+    public String getNewAdNum() {
+        return newAdNum;
+    }
+
+    public void setNewAdNum(String newAdNum) {
+        this.newAdNum = newAdNum;
+    }
+
+    public String getOldAdNum() {
+        return oldAdNum;
+    }
+
+    public void setOldAdNum(String oldAdNum) {
+        this.oldAdNum = oldAdNum;
     }
 }
