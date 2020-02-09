@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS PREFECTURE_DISTANCE
 
 CREATE TABLE IF NOT EXISTS ADRESS
 (
+
     AD_ID                        INT NOT NULL,
     AD_NORTH                     DOUBLE NOT NULL,
     AD_WESR                      DOUBLE NOT NULL,
